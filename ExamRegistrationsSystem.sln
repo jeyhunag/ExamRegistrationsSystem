@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamRegistrationSystem.API", "ExamRegistrationSystem.API\ExamRegistrationSystem.API.csproj", "{AAB18A78-2611-466C-8105-B69A5D898364}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamRegistrationSystem.Web", "ExamRegistrationSystem.Web\ExamRegistrationSystem.Web.csproj", "{42619357-E1DF-4736-86C0-971F387F0709}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAB18A78-2611-466C-8105-B69A5D898364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAB18A78-2611-466C-8105-B69A5D898364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAB18A78-2611-466C-8105-B69A5D898364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAB18A78-2611-466C-8105-B69A5D898364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42619357-E1DF-4736-86C0-971F387F0709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42619357-E1DF-4736-86C0-971F387F0709}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42619357-E1DF-4736-86C0-971F387F0709}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42619357-E1DF-4736-86C0-971F387F0709}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE6A1876-EDFA-42FF-B858-0FA7C5ADC773}
+	EndGlobalSection
+EndGlobal

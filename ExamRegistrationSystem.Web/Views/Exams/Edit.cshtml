@@ -1,0 +1,47 @@
+﻿@model ExamViewModel
+
+@{
+    ViewData["Title"] = "İmtahanı Yenilə";
+    var students = ViewBag.Students as List<StudentViewModel>;
+    var courses = ViewBag.Courses as List<CourseViewModel>;
+}
+
+<h2>İmtahanı Yenilə</h2>
+
+<form asp-action="Edit" asp-route-id="@Model.ExamId" method="post">
+    <input type="hidden" asp-for="ExamId" />
+
+    <div class="form-group">
+        <label>Şagird</label>
+        <select asp-for="StudentNumber" class="form-control" asp-items="@(new SelectList(students, "StudentNumber", "FirstName", Model.StudentNumber))">
+            <option value="">Şagird seçin</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Dərs</label>
+        <select asp-for="CourseCode" class="form-control" asp-items="@(new SelectList(courses, "CourseCode", "CourseName", Model.CourseCode))">
+            <option value="">Dərs seçin</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Tarix</label>
+        <input asp-for="ExamDate" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <label>Bal</label>
+        <input asp-for="Score" class="form-control" type="number" />
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Yadda saxla</button>
+    <a asp-action="Index" class="btn btn-secondary">Geri</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

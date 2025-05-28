@@ -1,0 +1,24 @@
+﻿@model ExamViewModel
+
+@{
+    ViewData["Title"] = "İmtahanı Sil";
+}
+
+<h2>İmtahanı Sil</h2>
+
+<div class="alert alert-danger">
+    Əminsiniz ki, bu imtahan məlumatını silmək istəyirsiniz?
+</div>
+
+<div class="mb-3">
+    <strong>Şagird Nömrəsi:</strong> @Model.StudentNumber<br />
+    <strong>Dərs Kodu:</strong> @Model.CourseCode<br />
+    <strong>Tarix:</strong> @Model.ExamDate.ToShortDateString()<br />
+    <strong>Bal:</strong> @Model.Score
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ExamId" />
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a asp-action="Index" class="btn btn-secondary">İmtina</a>
+</form>

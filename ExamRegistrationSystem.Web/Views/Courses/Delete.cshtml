@@ -1,0 +1,31 @@
+﻿@model CourseViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Dərsi Sil</h2>
+
+<div class="alert alert-danger">
+    <strong>Əminsiniz?</strong> Aşağıdakı dərs silinəcək:
+</div>
+
+<dl class="row">
+    <dt class="col-sm-2">Kod</dt>
+    <dd class="col-sm-10">@Model.CourseCode</dd>
+
+    <dt class="col-sm-2">Ad</dt>
+    <dd class="col-sm-10">@Model.CourseName</dd>
+
+    <dt class="col-sm-2">Sinif</dt>
+    <dd class="col-sm-10">@Model.Grade</dd>
+
+    <dt class="col-sm-2">Müəllim</dt>
+    <dd class="col-sm-10">@Model.TeacherFirstName @Model.TeacherLastName</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="CourseCode" />
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a asp-action="Index" class="btn btn-secondary">Geri</a>
+</form>

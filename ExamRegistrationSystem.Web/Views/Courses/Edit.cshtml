@@ -1,0 +1,44 @@
+﻿@model CourseViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Dərsi Redaktə Et</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="CourseCode" />
+
+    <div class="mb-3">
+        <label asp-for="CourseName" class="form-label">Dərsin adı </label>
+        <input asp-for="CourseName" class="form-control" />
+        <span asp-validation-for="CourseName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Grade" class="form-label">Sinifi</label>
+        <input asp-for="Grade" class="form-control" type="number" />
+        <span asp-validation-for="Grade" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TeacherFirstName" class="form-label">Müəllimin adı</label>
+        <input asp-for="TeacherFirstName" class="form-control" />
+        <span asp-validation-for="TeacherFirstName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TeacherLastName" class="form-label">Müəllimin soyadı</label>
+        <input asp-for="TeacherLastName" class="form-control" />
+        <span asp-validation-for="TeacherLastName" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Yadda saxla</button>
+    <a asp-action="Index" class="btn btn-secondary">Geri</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

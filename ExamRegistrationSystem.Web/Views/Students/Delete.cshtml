@@ -1,0 +1,14 @@
+﻿@model StudentViewModel
+@{
+    ViewData["Title"] = "Şagirdi Sil";
+}
+<h2>Şagirdi Sil</h2>
+<h4>Əminsiniz ki, bu şagirdi silmək istəyirsiniz?</h4>
+<div>
+    <h5>@Model.FirstName @Model.LastName - @Model.StudentNumber</h5>
+</div>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="StudentNumber" />
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a asp-action="Index" class="btn btn-secondary">İmtina</a>
+</form>

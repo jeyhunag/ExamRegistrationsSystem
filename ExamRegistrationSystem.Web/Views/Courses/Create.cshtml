@@ -1,0 +1,49 @@
+﻿@model CourseViewModel
+
+@{
+    ViewData["Title"] = "Yeni Dərs Yarat";
+}
+
+
+<h2>Yeni Dərs Yarat</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="CourseCode" class="form-label">Dərsin kodu</label>
+        <input asp-for="CourseCode" class="form-control" />
+        <span asp-validation-for="CourseCode" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CourseName" class="form-label">Dərsin adı</label>
+        <input asp-for="CourseName" class="form-control" />
+        <span asp-validation-for="CourseName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Grade" class="form-label">Sinifi</label>
+        <input asp-for="Grade" class="form-control" type="number" />
+        <span asp-validation-for="Grade" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TeacherFirstName" class="form-label">Müəllimin adı</label>
+        <input asp-for="TeacherFirstName" class="form-control" />
+        <span asp-validation-for="TeacherFirstName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TeacherLastName" class="form-label">Müəllimin soyadı</label>
+        <input asp-for="TeacherLastName" class="form-control" />
+        <span asp-validation-for="TeacherLastName" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Yarat</button>
+    <a asp-action="Index" class="btn btn-secondary">Geri</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

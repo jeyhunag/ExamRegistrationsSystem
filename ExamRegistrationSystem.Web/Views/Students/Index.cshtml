@@ -1,0 +1,39 @@
+﻿@model List<StudentViewModel>
+@{
+    ViewData["Title"] = "Şagirdlər";
+}
+<h2>Şagirdlər Siyahısı</h2>
+<a asp-action="Create" class="btn btn-primary mb-3">Yeni Şagird yarad</a>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Nömrə</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Sinif</th>
+                <th>Əməliyyatlar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.StudentNumber</td>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.Grade</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@student.StudentNumber" class="btn btn-warning btn-sm">Düzəliş et</a>
+                        <a asp-action="Delete" asp-route-id="@student.StudentNumber" class="btn btn-danger btn-sm">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

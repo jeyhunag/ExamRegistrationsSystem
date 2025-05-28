@@ -1,0 +1,47 @@
+﻿@model List<ExamViewModel>
+
+@{
+    ViewData["Title"] = "İmtahanlar";
+}
+
+<h2>İmtahanlar Siyahısı</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+else
+{
+    <a class="btn btn-success mb-3" asp-action="Create">Yeni İmtahan Yarat</a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Şagird No</th>
+                <th>Dərs Kodu</th>
+                <th>Tarix</th>
+                <th>Bal</th>
+                <th>Əməliyyatlar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var exam in Model)
+            {
+                <tr>
+                    <td>@exam.ExamId</td>
+                    <td>@exam.StudentNumber</td>
+                    <td>@exam.CourseCode</td>
+                    <td>@exam.ExamDate.ToString("yyyy-MM-dd")</td>
+                    <td>@exam.Score</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@exam.ExamId" class="btn btn-warning btn-sm">Düzəliş et</a>
+                        <a asp-action="Delete" asp-route-id="@exam.ExamId" class="btn btn-danger btn-sm">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

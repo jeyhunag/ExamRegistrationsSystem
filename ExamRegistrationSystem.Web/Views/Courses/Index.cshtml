@@ -1,0 +1,49 @@
+﻿@model List<CourseViewModel>
+
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<h2>Dərslərin Siyahısı</h2>
+
+<div class="mb-3">
+    <a href="@Url.Action("Create", "Courses")" class="btn btn-primary">+ Yeni Dərs Yarat</a>
+</div>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Dərsin kodu </th>
+                <th>Dərsin adı</th>
+                <th>Sinif</th>
+                <th>Dərsi verən müəllimin adı</th>
+                <th>Dərsi verən müəlimin soyadı</th>
+                <th>Əməliyyatlar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in Model)
+            {
+                <tr>
+                    <td>@course.CourseCode</td>
+                    <td>@course.CourseName</td>
+                    <td>@course.Grade</td>
+                    <td>@course.TeacherFirstName</td>
+                    <td>@course.TeacherLastName</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Courses", new { id = course.CourseCode })" class="btn btn-warning btn-sm">Düzəliş et</a>
+                        <a href="@Url.Action("Delete", "Courses", new { id = course.CourseCode })" class="btn btn-danger btn-sm">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
